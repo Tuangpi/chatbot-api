@@ -44,6 +44,10 @@ const chatbotHandler: RequestHandler = async (req: Request, res: Response, next:
     }
 };
 
+app.get("/", (req: Request, res: Response) => {
+    res.json({ response: "Hello" })
+});
+
 app.post('/api/chat', chatbotHandler);
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
