@@ -1,21 +1,14 @@
 require('dotenv').config();
-import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { START, END, MessagesAnnotation, StateGraph, MemorySaver, } from "@langchain/langgraph";
 import { ChatMistralAI } from "@langchain/mistralai";
 
-const systemTemplate = [
-    `You are an assistant for question-answering tasks. `,
-    `Use the following pieces of retrieved context to answer `,
-    `the question. If you don't know the answer, say that you `,
-    `don't know. Use three sentences maximum and keep the `,
-    `answer concise.`,
-    `\n\n`,
-    `{context}`,
-].join("");
-
 const prompt = ChatPromptTemplate.fromMessages([
-    ["system", systemTemplate],
-    ["human", "{input}"],
+    [
+        "system",
+        "Answer all questions to the best of your ability.",
+    ],
+    new MessagesPlaceholder("messages"),
 ]);
 
 const llm = new ChatMistralAI({
