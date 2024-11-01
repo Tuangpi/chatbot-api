@@ -1,12 +1,11 @@
 {
   "name": "chatbot-api",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.ts",
-    "dev": "nodemon src/index.ts",
-    "build": "echo 'No build needed'"
+    "dev": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
